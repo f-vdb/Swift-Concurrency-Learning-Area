@@ -9,11 +9,31 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                ZStack {
+                    Text("Learning Swift Concurrency")
+                        .font(.title)
+                }
+                HStack {
+                    VStack {
+                        Text("This Test-App needs network connections.")
+                        Text("So switch on in Xcode under targets -> App sandbox \"Incoming and Outgoing Connections\" ")
+                    }
+                    .frame(width: 300)
+                    List {
+                        NavigationLink(destination: TestViewA()) {
+                            Text("First")
+                        }
+                        Divider()
+                        NavigationLink(destination: TestViewB()) {
+                            Text("First")
+                        }
+                        Divider()
+                    }
+                }
+            }
+            .navigationTitle("Learn Swift Concurrency")
         }
         .padding()
     }
